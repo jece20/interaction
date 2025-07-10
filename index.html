@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atardecer Parque</title>
+    <link rel="icon" href="assets/personajes.png" type="image/png">
+
+</head>
+
+<body>
+    <div class="scene-container">
+        <div class="sun"></div>
+        <div class="clouds">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+        </div>
+
+        <div class="trees">
+            <div class="tree tree1">
+                <div class="tree-trunk"></div>
+                <div class="tree-leaves"></div>
+            </div>
+            <div class="tree tree2">
+                <div class="tree-trunk"></div>
+                <div class="tree-leaves"></div>
+            </div>
+        </div>
+
+        <div class="ground"></div>
+        <div class="grass"></div>
+
+        <div class="bench">
+            <div class="bench-back"></div>
+            <div class="bench-seat"></div>
+            <div class="bench-leg bench-leg1"></div>
+            <div class="bench-leg bench-leg2"></div>
+        </div>
+
+        <div class="characters">
+            <div class="character girl" id="girl">
+                <div class="girl-hair"></div>
+                <div class="girl-body"></div>
+                <div class="girl-legs"></div>
+                <div class="girl-shoes"></div>
+                <div class="girl-eyes"></div>
+                <div class="girl-mouth"></div>
+            </div>
+            <div class="character boy" id="boy">
+                <div class="boy-hair"></div>
+                <div class="boy-body"></div>
+                <div class="boy-jeans"></div>
+                <div class="boy-shoes"></div>
+                <div class="boy-eyes"></div>
+                <div class="boy-mouth"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="kiss-btn" id="boyKissBtn">💋 Beso del Chico</button>
+            <div class="counter">
+                <span id="boyKissCount">0</span> besos dados
+            </div>
+            <button class="kiss-btn hidden" id="girlKissBtn">💋 Beso de la Chica</button>
+            <div class="counter hidden" id="girlCounter">
+                <span id="girlKissCount">0</span> besos dados
+            </div>
+        </div>
+
+        <div class="message" id="message">
+            ¡Ehh, me merezco uno yo también! 😘
+        </div>
+    </div>
+
+    <audio id="musicaFondo" src="sunsnd.mp3" autoplay loop></audio>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+
+</body>
+
+</html>
