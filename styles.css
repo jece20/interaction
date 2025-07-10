@@ -1,34 +1,72 @@
-/* File: styles.css */       
-        body {
-            margin: 0;
-            padding: 0;
-                background: linear-gradient(
-        180deg,
-        #ff9a56 0%,     /* Naranja atardecer */
-        #fca12a 30%,    /* Amarillo atardecer */
-        #e86d7b 50%,    /* Rosado medio */
-        #4d310d 75%,    /* Verde */
-        #53340a 100%    /* Café oscuro */
-    );
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
-        }
+/* File: styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg,
+            #ff9a56 0%,
+            /* Naranja atardecer */
+            #fca12a 30%,
+            /* Amarillo atardecer */
+            #e86d7b 50%,
+            /* Rosado medio */
+            #4d310d 75%,
+            /* Verde */
+            #53340a 100%
+            /* Café oscuro */
+        );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
 
-        .scene-container {
-            position: relative;
-            width: 1000px;
-            height: 850px;
-            background: url('https://i.pinimg.com/originals/2c/dd/2b/2cdd2b6c9faa5bef201dd2b6b3d9e861.gif') center center / cover no-repeat;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
+.scene-container {
+    position: relative;
+    width: 910px;
+    height: 850px;
+    background: url('https://i.pinimg.com/originals/2c/dd/2b/2cdd2b6c9faa5bef201dd2b6b3d9e861.gif') center center / cover no-repeat;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-width: 95vw;
+    max-height: 90vh;
+}
 
-        /*.sun {
+@media (max-width: 600px) {
+    .scene-container {
+        width: 98vw;
+        height: 80vh;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+        bottom: 20px;
+    }
+    .kiss-btn, .counter {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 400px) {
+    .scene-container {
+        width: 100vw;
+        height: 75vh;
+        border-radius: 0;
+    }
+    .controls {
+        bottom: 10px;
+    }
+}
+
+/*.sun {
             position: absolute;
             width: 80px;
             height: 80px;
@@ -45,7 +83,7 @@
             100% { box-shadow: 0 0 60px rgba(255, 235, 59, 0.8); }
         }*/
 
-        /*.clouds {
+/*.clouds {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -76,12 +114,19 @@
             animation-delay: 2s;
         }*/
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+@keyframes float {
 
-        /*.ground {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/*.ground {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -104,422 +149,477 @@
             animation: grassWave 3s ease-in-out infinite;
         }*/
 
-        @keyframes grassWave {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-1px); }
-        }
+@keyframes grassWave {
 
-        .bench {
-            position: absolute;
-            bottom: 160px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 80px;
-        }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
 
-        .bench-back {
-            width: 200px;
-            height: 15px;
-            background: #8d6e63;
-            border-radius: 5px;
-            position: absolute;
-            top: 20;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
+    50% {
+        transform: translateY(-1px);
+    }
+}
 
-        .bench-seat {
-            width: 200px;
-            height: 12px;
-            background: #b49082;
-            border-radius: 5px;
-            position: absolute;
-            top: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
+.bench {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 80px;
+}
 
-        .bench-leg {
-            width: 8px;
-            height: 40px;
-            background: #615450;
-            position: absolute;
-            top: 37px;
-            border-radius: 2px;
-        }
+.bench-back {
+    width: 200px;
+    height: 15px;
+    background: #8d6e63;
+    border-radius: 5px;
+    position: absolute;
+    top: 20;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .bench-leg1 { left: 20px; }
-        .bench-leg2 { right: 20px; }
+.bench-seat {
+    width: 200px;
+    height: 12px;
+    background: #b49082;
+    border-radius: 5px;
+    position: absolute;
+    top: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .characters {
-            position: absolute;
-            bottom: 180px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: flex-end;
-            gap: 20px;
-        }
+.bench-leg {
+    width: 8px;
+    height: 40px;
+    background: #615450;
+    position: absolute;
+    top: 37px;
+    border-radius: 2px;
+}
 
-        .character {
-            position: relative;
-            image-rendering: pixelated;
-            transition: transform 0.3s ease;
-        }
+.bench-leg1 {
+    left: 20px;
+}
 
-        .girl {
-            width: 70px;
-            height: 90px;
-            position: relative;
-            animation: idle 4s ease-in-out infinite;
-        }
+.bench-leg2 {
+    right: 20px;
+}
 
-        /* Cabeza de la chica */
-        .girl::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 15px;
-            width: 40px;
-            height: 35px;
-            background: #ffdbcb;
-            border-radius: 20px;
-            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1);
-        }
+.characters {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
 
-        /* Cabello de la chica - negro y largo */
-        .girl-hair {
-            position: absolute;
-            top: -25px;
-            left: 10px;
-            width: 50px;
-            height: 45px;
-            background: #2c1810;
-            border-radius: 25px 25px 15px 15px;
-            z-index: -1;
-        }
+.character {
+    position: relative;
+    image-rendering: pixelated;
+    transition: transform 0.3s ease;
+}
 
-        .girl-hair::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -5px;
-            width: 20px;
-            height: 25px;
-            background: #2c1810;
-            border-radius: 0 0 15px 15px;
-            transform: rotate(-10deg);
-        }
+.girl {
+    width: 70px;
+    height: 90px;
+    position: relative;
+    animation: idle 4s ease-in-out infinite;
+}
 
-        .girl-hair::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -5px;
-            width: 20px;
-            height: 25px;
-            background: #2c1810;
-            border-radius: 0 0 15px 15px;
-            transform: rotate(10deg);
-        }
+/* Cabeza de la chica */
+.girl::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    width: 40px;
+    height: 35px;
+    background: #ffdbcb;
+    border-radius: 20px;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        /* Cuerpo de la chica */
-        .girl-body {
-            position: absolute;
-            top: 15px;
-            left: 10px;
-            width: 50px;
-            height: 35px;
-            background: #d32f2f;
-            border-radius: 8px 8px 0 0;
-        }
+/* Cabello de la chica - negro y largo */
+.girl-hair {
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    width: 50px;
+    height: 45px;
+    background: #2c1810;
+    border-radius: 25px 25px 15px 15px;
+    z-index: -1;
+}
 
-        /* Piernas de la chica */
-        .girl-legs {
-            position: absolute;
-            top: 50px;
-            left: 15px;
-            width: 40px;
-            height: 30px;
-            background: #90e4c8;
-            border-radius: 0 0 8px 8px;
-        }
+.girl-hair::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -5px;
+    width: 20px;
+    height: 25px;
+    background: #2c1810;
+    border-radius: 0 0 15px 15px;
+    transform: rotate(-10deg);
+}
 
-        /* Zapatos de la chica */
-        .girl-shoes {
-            position: absolute;
-            top: 75px;
-            left: 15px;
-            width: 15px;
-            height: 8px;
-            background: #333;
-            border-radius: 4px;
-            box-shadow: 25px 0 0 #333;
-        }
+.girl-hair::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    width: 20px;
+    height: 25px;
+    background: #2c1810;
+    border-radius: 0 0 15px 15px;
+    transform: rotate(10deg);
+}
 
-        .girl-eyes {
-            position: absolute;
-            top: -12px;
-            left: 32px;
-            width: 4px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            box-shadow: 12px 0 0 #333;
-        }
+/* Cuerpo de la chica */
+.girl-body {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 50px;
+    height: 35px;
+    background: #d32f2f;
+    border-radius: 8px 8px 0 0;
+}
 
-        .girl-mouth {
-            position: absolute;
-            top: -5px;
-            left: 34px;
-            width: 8px;
-            height: 4px;
-            background: #ff6b6b;
-            border-radius: 0 0 8px 8px;
-        }
+/* Piernas de la chica */
+.girl-legs {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    width: 40px;
+    height: 30px;
+    background: #90e4c8;
+    border-radius: 0 0 8px 8px;
+}
 
-        .boy {
-            width: 70px;
-            height: 90px;
-            position: relative;
-            animation: idle 4s ease-in-out infinite;
-            animation-delay: 1s;
-        }
+/* Zapatos de la chica */
+.girl-shoes {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 15px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    box-shadow: 25px 0 0 #333;
+}
 
-        /* Cabeza del chico */
-        .boy::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 15px;
-            width: 40px;
-            height: 35px;
-            background: #ffdbcb;
-            border-radius: 20px;
-            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1);
-        }
+.girl-eyes {
+    position: absolute;
+    top: -12px;
+    left: 32px;
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 12px 0 0 #333;
+}
 
-        /* Cabello del chico - marrón y corto */
-        .boy-hair {
-            position: absolute;
-            top: -25px;
-            left: 12px;
-            width: 46px;
-            height: 25px;
-            background: #5d4037;
-            border-radius: 23px 23px 8px 8px;
-            z-index: -1;
-        }
+.girl-mouth {
+    position: absolute;
+    top: -5px;
+    left: 34px;
+    width: 8px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 0 0 8px 8px;
+}
 
-        /* Cuerpo del chico */
-        .boy-body {
-            position: absolute;
-            top: 15px;
-            left: 10px;
-            width: 50px;
-            height: 35px;
-            background: #ff9800;
-            border-radius: 8px 8px 0 0;
-        }
+.boy {
+    width: 70px;
+    height: 90px;
+    position: relative;
+    animation: idle 4s ease-in-out infinite;
+    animation-delay: 1s;
+}
 
-        /* Jeans del chico */
-        .boy-jeans {
-            position: absolute;
-            top: 50px;
-            left: 15px;
-            width: 40px;
-            height: 30px;
-            background: #1976d2;
-            border-radius: 0 0 8px 8px;
-        }
+/* Cabeza del chico */
+.boy::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    width: 40px;
+    height: 35px;
+    background: #ffdbcb;
+    border-radius: 20px;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        /* Detalle de los jeans */
-        .boy-jeans::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 18px;
-            width: 1px;
-            height: 20px;
-            background: #0d47a1;
-            box-shadow: 3px 0 0 #0d47a1;
-        }
+/* Cabello del chico - marrón y corto */
+.boy-hair {
+    position: absolute;
+    top: -25px;
+    left: 12px;
+    width: 46px;
+    height: 25px;
+    background: #5d4037;
+    border-radius: 23px 23px 8px 8px;
+    z-index: -1;
+}
 
-        /* Zapatos del chico */
-        .boy-shoes {
-            position: absolute;
-            top: 75px;
-            left: 15px;
-            width: 15px;
-            height: 8px;
-            background: #333;
-            border-radius: 4px;
-            box-shadow: 25px 0 0 #333;
-        }
+/* Cuerpo del chico */
+.boy-body {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 50px;
+    height: 35px;
+    background: #ff9800;
+    border-radius: 8px 8px 0 0;
+}
 
-        .boy-eyes {
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            width: 4px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            box-shadow: 12px 0 0 #333;
-        }
+/* Jeans del chico */
+.boy-jeans {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    width: 40px;
+    height: 30px;
+    background: #1976d2;
+    border-radius: 0 0 8px 8px;
+}
 
-        .boy-mouth {
-            position: absolute;
-            top: -5px;
-            left: 26px;
-            width: 8px;
-            height: 4px;
-            background: #ff6b6b;
-            border-radius: 0 0 8px 8px;
-        }
+/* Detalle de los jeans */
+.boy-jeans::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 18px;
+    width: 1px;
+    height: 20px;
+    background: #0d47a1;
+    box-shadow: 3px 0 0 #0d47a1;
+}
 
-        @keyframes idle {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-2px); }
-        }
+/* Zapatos del chico */
+.boy-shoes {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 15px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    box-shadow: 25px 0 0 #333;
+}
 
-        @keyframes boyKiss {
-            0% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(-15px) rotate(-5deg); }
-            100% { transform: translateX(0) rotate(0deg); }
-        }
+.boy-eyes {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 12px 0 0 #333;
+}
 
-        @keyframes girlKiss {
-            0% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(15px) rotate(5deg); }
-            100% { transform: translateX(0) rotate(0deg); }
-        }
+.boy-mouth {
+    position: absolute;
+    top: -5px;
+    left: 26px;
+    width: 8px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 0 0 8px 8px;
+}
 
-        @keyframes blush {
-            0% { background: #ffdbcb; }
-            50% { background: #ffb3ba; }
-            100% { background: #ffdbcb; }
-        }
+@keyframes idle {
 
-        @keyframes blink {
-          0%, 97%, 100% { height: 4px; }
-          98%, 99% { height: 0.5px; }
-      }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
 
-      .girl-eyes, .boy-eyes {
-          animation: blink 4s infinite;
-      }
-        
-        .boy-kiss-animation {
-            animation: boyKiss 1s ease-in-out;
-        }
+    50% {
+        transform: translateY(-2px);
+    }
+}
 
-        .girl-kiss-animation {
-            animation: girlKiss 1s ease-in-out;
-        }
+@keyframes boyKiss {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
 
-        .blush-animation::before {
-            animation: blush 1s ease-in-out;
-        }
-        
-        .heart {
-            position: absolute;
-            color: #e91e63;
-            font-size: 32px;
-            opacity: 0;
-            pointer-events: none;
-            animation: heartFloat 2s ease-out forwards;
-            z-index: 5;
-            transform: translate(-50%, -50%); /* Centra el corazón desde su punto de referencia */
-        }
+    50% {
+        transform: translateX(-15px) rotate(-5deg);
+    }
 
-        @keyframes heartFloat {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%) translateY(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(-50px) scale(1.5);
-            }
-        }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
 
-        .controls {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+@keyframes girlKiss {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
 
-        .kiss-btn {
-            padding: 12px 24px;
-            background: linear-gradient(145deg, #f5f796, #eb518e);
-            color: black;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
-            transition: all 0.3s ease;
-            font-family: 'Courier New', monospace;
-        }
+    50% {
+        transform: translateX(15px) rotate(5deg);
+    }
 
-        .kiss-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
-        }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
 
-        .kiss-btn:active {
-            transform: translateY(0);
-        }
+@keyframes blush {
+    0% {
+        background: #ffdbcb;
+    }
 
-        .kiss-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+    50% {
+        background: #ffb3ba;
+    }
 
-        .counter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    100% {
+        background: #ffdbcb;
+    }
+}
 
-        .message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            z-index: 10;
-        }
+@keyframes blink {
 
-        .message.show {
-            opacity: 1;
-            visibility: visible;
-        }
+    0%,
+    97%,
+    100% {
+        height: 4px;
+    }
 
-        .hidden {
-            display: none;
-        }
+    98%,
+    99% {
+        height: 0.5px;
+    }
+}
 
-        /*.trees {
+.girl-eyes,
+.boy-eyes {
+    animation: blink 4s infinite;
+}
+
+.boy-kiss-animation {
+    animation: boyKiss 1s ease-in-out;
+}
+
+.girl-kiss-animation {
+    animation: girlKiss 1s ease-in-out;
+}
+
+.blush-animation::before {
+    animation: blush 1s ease-in-out;
+}
+
+.heart {
+    position: absolute;
+    color: #e91e63;
+    font-size: 32px;
+    opacity: 0;
+    pointer-events: none;
+    animation: heartFloat 2s ease-out forwards;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    /* Centra el corazón desde su punto de referencia */
+}
+
+@keyframes heartFloat {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(-50px) scale(1.5);
+    }
+}
+
+.controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.kiss-btn {
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #f5f796, #eb518e);
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.kiss-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.kiss-btn:active {
+    transform: translateY(0);
+}
+
+.kiss-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.counter {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+.message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+/*.trees {
             position: absolute;
             bottom: 150px;
             width: 100%;
