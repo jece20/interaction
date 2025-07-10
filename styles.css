@@ -1,562 +1,576 @@
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: linear-gradient(180deg,
-                    #ff9a56 0%,
-                    #fca12a 30%,
-                    #e86d7b 50%,
-                    #4d310d 75%,
-                    #53340a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
-            padding: 10px;
-        }
+body {
+    background: linear-gradient(180deg,
+            #ff9a56 0%,
+            #fca12a 30%,
+            #e86d7b 50%,
+            #4d310d 75%,
+            #53340a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    padding: 10px;
+}
 
-        .scene-container {
-            position: relative;
-            width: min(95vw, 1000px);
-            height: min(95vh, 850px);
-            background: url('https://i.pinimg.com/originals/2c/dd/2b/2cdd2b6c9faa5bef201dd2b6b3d9e861.gif') center center / cover no-repeat;
-            border-radius: min(20px, 2vw);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
+.scene-container {
+    position: relative;
+    width: min(95vw, 1000px);
+    height: min(95vh, 850px);
+    background: url('https://i.pinimg.com/originals/2c/dd/2b/2cdd2b6c9faa5bef201dd2b6b3d9e861.gif') center center / cover no-repeat;
+    border-radius: min(20px, 2vw);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
 
-        .bench {
-            position: absolute;
-            bottom: min(220px, 30vh);
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(200px, 25vw);
-            height: min(80px, 10vh);
-        }
+.bench {
+    position: absolute;
+    bottom: min(220px, 30vh);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(200px, 25vw);
+    height: min(80px, 10vh);
+}
 
-        .bench-back {
-            width: 100%;
-            height: 18%;
-            background: #8d6e63;
-            border-radius: 5px;
-            position: absolute;
-            top: 25%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.bench-back {
+    width: 100%;
+    height: 18%;
+    background: #8d6e63;
+    border-radius: 5px;
+    position: absolute;
+    top: 25%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .bench-seat {
-            width: 100%;
-            height: 15%;
-            background: #b49082;
-            border-radius: 5px;
-            position: absolute;
-            top: 31%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.bench-seat {
+    width: 100%;
+    height: 15%;
+    background: #b49082;
+    border-radius: 5px;
+    position: absolute;
+    top: 31%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .bench-leg {
-            width: 4%;
-            height: 50%;
-            background: #615450;
-            position: absolute;
-            top: 46%;
-            border-radius: 2px;
-        }
+.bench-leg {
+    width: 4%;
+    height: 50%;
+    background: #615450;
+    position: absolute;
+    top: 46%;
+    border-radius: 2px;
+}
 
-        .bench-leg1 {
-            left: 10%;
-        }
+.bench-leg1 {
+    left: 10%;
+}
 
-        .bench-leg2 {
-            right: 10%;
-        }
+.bench-leg2 {
+    right: 10%;
+}
 
-        .characters {
-            position: absolute;
-            bottom: min(240px, 32vh);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: flex-end;
-            gap: min(20px, 2.5vw);
-            scale: min(1, 0.15vw + 0.7);
-        }
+.characters {
+    position: absolute;
+    bottom: min(240px, 32vh);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    gap: min(20px, 2.5vw);
+    scale: min(1, 0.15vw + 0.7);
+}
 
-        .character {
-            position: relative;
-            image-rendering: pixelated;
-            transition: transform 0.3s ease;
-        }
+.character {
+    position: relative;
+    image-rendering: pixelated;
+    transition: transform 0.3s ease;
+}
 
-        .girl {
-            width: 70px;
-            height: 90px;
-            position: relative;
-            animation: idle 4s ease-in-out infinite;
-        }
+.girl {
+    width: 70px;
+    height: 90px;
+    position: relative;
+    animation: idle 4s ease-in-out infinite;
+}
 
-        .girl::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 15px;
-            width: 40px;
-            height: 35px;
-            background: #ffdbcb;
-            border-radius: 20px;
-            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
-        }
+.girl::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    width: 40px;
+    height: 35px;
+    background: #ffdbcb;
+    border-radius: 20px;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .girl-hair {
-            position: absolute;
-            top: -25px;
-            left: 10px;
-            width: 50px;
-            height: 45px;
-            background: #2c1810;
-            border-radius: 25px 25px 15px 15px;
-            z-index: -1;
-        }
+.girl-hair {
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    width: 50px;
+    height: 45px;
+    background: #2c1810;
+    border-radius: 25px 25px 15px 15px;
+    z-index: -1;
+}
 
-        .girl-hair::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -5px;
-            width: 20px;
-            height: 25px;
-            background: #2c1810;
-            border-radius: 0 0 15px 15px;
-            transform: rotate(-10deg);
-        }
+.girl-hair::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -5px;
+    width: 20px;
+    height: 25px;
+    background: #2c1810;
+    border-radius: 0 0 15px 15px;
+    transform: rotate(-10deg);
+}
 
-        .girl-hair::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -5px;
-            width: 20px;
-            height: 25px;
-            background: #2c1810;
-            border-radius: 0 0 15px 15px;
-            transform: rotate(10deg);
-        }
+.girl-hair::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    width: 20px;
+    height: 25px;
+    background: #2c1810;
+    border-radius: 0 0 15px 15px;
+    transform: rotate(10deg);
+}
 
-        .girl-body {
-            position: absolute;
-            top: 15px;
-            left: 10px;
-            width: 50px;
-            height: 35px;
-            background: #d32f2f;
-            border-radius: 8px 8px 0 0;
-        }
+.girl-body {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 50px;
+    height: 35px;
+    background: #d32f2f;
+    border-radius: 8px 8px 0 0;
+}
 
-        .girl-legs {
-            position: absolute;
-            top: 50px;
-            left: 15px;
-            width: 40px;
-            height: 30px;
-            background: #90e4c8;
-            border-radius: 0 0 8px 8px;
-        }
+.girl-legs {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    width: 40px;
+    height: 30px;
+    background: #90e4c8;
+    border-radius: 0 0 8px 8px;
+}
 
-        .girl-shoes {
-            position: absolute;
-            top: 75px;
-            left: 15px;
-            width: 15px;
-            height: 8px;
-            background: #333;
-            border-radius: 4px;
-            box-shadow: 25px 0 0 #333;
-        }
+.girl-shoes {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 15px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    box-shadow: 25px 0 0 #333;
+}
 
-        .girl-eyes {
-            position: absolute;
-            top: -12px;
-            left: 32px;
-            width: 4px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            box-shadow: 12px 0 0 #333;
-        }
+.girl-eyes {
+    position: absolute;
+    top: -12px;
+    left: 32px;
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 12px 0 0 #333;
+}
 
-        .girl-mouth {
-            position: absolute;
-            top: -5px;
-            left: 34px;
-            width: 8px;
-            height: 4px;
-            background: #ff6b6b;
-            border-radius: 0 0 8px 8px;
-        }
+.girl-mouth {
+    position: absolute;
+    top: -5px;
+    left: 34px;
+    width: 8px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 0 0 8px 8px;
+}
 
-        .boy {
-            width: 70px;
-            height: 90px;
-            position: relative;
-            animation: idle 4s ease-in-out infinite;
-            animation-delay: 1s;
-        }
+.boy {
+    width: 70px;
+    height: 90px;
+    position: relative;
+    animation: idle 4s ease-in-out infinite;
+    animation-delay: 1s;
+}
 
-        .boy::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 15px;
-            width: 40px;
-            height: 35px;
-            background: #ffdbcb;
-            border-radius: 20px;
-            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
-        }
+.boy::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    width: 40px;
+    height: 35px;
+    background: #ffdbcb;
+    border-radius: 20px;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .boy-hair {
-            position: absolute;
-            top: -25px;
-            left: 12px;
-            width: 46px;
-            height: 25px;
-            background: #5d4037;
-            border-radius: 23px 23px 8px 8px;
-            z-index: -1;
-        }
+.boy-hair {
+    position: absolute;
+    top: -25px;
+    left: 12px;
+    width: 46px;
+    height: 25px;
+    background: #5d4037;
+    border-radius: 23px 23px 8px 8px;
+    z-index: -1;
+}
 
-        .boy-body {
-            position: absolute;
-            top: 15px;
-            left: 10px;
-            width: 50px;
-            height: 35px;
-            background: #ff9800;
-            border-radius: 8px 8px 0 0;
-        }
+.boy-body {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 50px;
+    height: 35px;
+    background: #ff9800;
+    border-radius: 8px 8px 0 0;
+}
 
-        .boy-jeans {
-            position: absolute;
-            top: 50px;
-            left: 15px;
-            width: 40px;
-            height: 30px;
-            background: #1976d2;
-            border-radius: 0 0 8px 8px;
-        }
+.boy-jeans {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    width: 40px;
+    height: 30px;
+    background: #1976d2;
+    border-radius: 0 0 8px 8px;
+}
 
-        .boy-jeans::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 18px;
-            width: 1px;
-            height: 20px;
-            background: #0d47a1;
-            box-shadow: 3px 0 0 #0d47a1;
-        }
+.boy-jeans::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 18px;
+    width: 1px;
+    height: 20px;
+    background: #0d47a1;
+    box-shadow: 3px 0 0 #0d47a1;
+}
 
-        .boy-shoes {
-            position: absolute;
-            top: 75px;
-            left: 15px;
-            width: 15px;
-            height: 8px;
-            background: #333;
-            border-radius: 4px;
-            box-shadow: 25px 0 0 #333;
-        }
+.boy-shoes {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 15px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    box-shadow: 25px 0 0 #333;
+}
 
-        .boy-eyes {
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            width: 4px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            box-shadow: 12px 0 0 #333;
-        }
+.boy-eyes {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 12px 0 0 #333;
+}
 
-        .boy-mouth {
-            position: absolute;
-            top: -5px;
-            left: 26px;
-            width: 8px;
-            height: 4px;
-            background: #ff6b6b;
-            border-radius: 0 0 8px 8px;
-        }
+.boy-mouth {
+    position: absolute;
+    top: -5px;
+    left: 26px;
+    width: 8px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 0 0 8px 8px;
+}
 
-        @keyframes idle {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-2px);
-            }
-        }
+@keyframes idle {
 
-        @keyframes boyKiss {
-            0% {
-                transform: translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(-15px) rotate(-5deg);
-            }
-            100% {
-                transform: translateX(0) rotate(0deg);
-            }
-        }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
 
-        @keyframes girlKiss {
-            0% {
-                transform: translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(15px) rotate(5deg);
-            }
-            100% {
-                transform: translateX(0) rotate(0deg);
-            }
-        }
+    50% {
+        transform: translateY(-2px);
+    }
+}
 
-        @keyframes blush {
-            0% {
-                background: #ffdbcb;
-            }
-            50% {
-                background: #ffb3ba;
-            }
-            100% {
-                background: #ffdbcb;
-            }
-        }
+@keyframes boyKiss {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
 
-        @keyframes blink {
-            0%,
-            97%,
-            100% {
-                height: 4px;
-            }
-            98%,
-            99% {
-                height: 0.5px;
-            }
-        }
+    50% {
+        transform: translateX(-15px) rotate(-5deg);
+    }
 
-        .girl-eyes,
-        .boy-eyes {
-            animation: blink 4s infinite;
-        }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
 
-        .boy-kiss-animation {
-            animation: boyKiss 1s ease-in-out;
-        }
+@keyframes girlKiss {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
 
-        .girl-kiss-animation {
-            animation: girlKiss 1s ease-in-out;
-        }
+    50% {
+        transform: translateX(15px) rotate(5deg);
+    }
 
-        .blush-animation::before {
-            animation: blush 1s ease-in-out;
-        }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
 
-        .heart {
-            position: absolute;
-            color: #e91e63;
-            font-size: min(32px, 4vw);
-            opacity: 0;
-            pointer-events: none;
-            animation: heartFloat 2s ease-out forwards;
-            z-index: 5;
-            transform: translate(-50%, -50%);
-        }
+@keyframes blush {
+    0% {
+        background: #ffdbcb;
+    }
 
-        @keyframes heartFloat {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%) translateY(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(-50px) scale(1.5);
-            }
-        }
+    50% {
+        background: #ffb3ba;
+    }
 
-        .controls {
-            position: absolute;
-            bottom: min(80px, 12vh);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: min(15px, 2vh);
-            align-items: center;
-            width: min(90%, 400px);
-        }
+    100% {
+        background: #ffdbcb;
+    }
+}
 
-        .kiss-btn {
-            padding: min(12px, 2vh) min(24px, 4vw);
-            background: linear-gradient(145deg, #f5f796, #eb518e);
-            color: black;
-            border: none;
-            border-radius: 25px;
-            font-size: min(18px, 3.5vw);
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
-            transition: all 0.3s ease;
-            font-family: 'Courier New', monospace;
-            width: 100%;
-            max-width: 250px;
-        }
+@keyframes blink {
 
-        .kiss-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
-        }
+    0%,
+    97%,
+    100% {
+        height: 4px;
+    }
 
-        .kiss-btn:active {
-            transform: translateY(0);
-        }
+    98%,
+    99% {
+        height: 0.5px;
+    }
+}
 
-        .kiss-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+.girl-eyes,
+.boy-eyes {
+    animation: blink 4s infinite;
+}
 
-        .counter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: min(10px, 1.5vh) min(20px, 3vw);
-            border-radius: 20px;
-            font-size: min(18px, 3.5vw);
-            font-weight: bold;
-            color: #333;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 100%;
-            max-width: 200px;
-        }
+.boy-kiss-animation {
+    animation: boyKiss 1s ease-in-out;
+}
 
-        .message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: min(30px, 4vh);
-            border-radius: 20px;
-            font-size: min(20px, 3.8vw);
-            font-weight: bold;
-            color: #333;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            z-index: 10;
-            max-width: 90%;
-        }
+.girl-kiss-animation {
+    animation: girlKiss 1s ease-in-out;
+}
 
-        .message.show {
-            opacity: 1;
-            visibility: visible;
-        }
+.blush-animation::before {
+    animation: blush 1s ease-in-out;
+}
 
-        .hidden {
-            display: none;
-        }
+.heart {
+    position: absolute;
+    color: #e91e63;
+    font-size: min(32px, 4vw);
+    opacity: 0;
+    pointer-events: none;
+    animation: heartFloat 2s ease-out forwards;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+}
 
-        /* Media Queries optimizadas para mantener personajes sentados */
-        @media (max-width: 768px) {
-            .scene-container {
-                width: 100vw;
-                height: 100vh;
-                border-radius: 0;
-            }
+@keyframes heartFloat {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+    }
 
-            .bench {
-                bottom: min(200px, 28vh);
-                width: min(180px, 30vw);
-                height: min(70px, 9vh);
-            }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(-50px) scale(1.5);
+    }
+}
 
-            .characters {
-                bottom: min(220px, 30vh); /* Ajustado para que coincida con la altura del banco */
-                scale: min(1, 0.18vw + 0.65);
-                gap: min(15px, 2vw);
-            }
+.controls {
+    position: absolute;
+    bottom: min(80px, 12vh);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: min(15px, 2vh);
+    align-items: center;
+    width: min(90%, 400px);
+}
 
-            .controls {
-                bottom: min(60px, 8vh);
-                gap: min(10px, 1.5vh);
-            }
-        }
+.kiss-btn {
+    padding: min(12px, 2vh) min(24px, 4vw);
+    background: linear-gradient(145deg, #f5f796, #eb518e);
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: min(18px, 3.5vw);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+    max-width: 250px;
+}
 
-        @media (max-width: 480px) {
-            .bench {
-                bottom: min(170px, 25vh);
-                width: min(150px, 35vw);
-                height: min(60px, 8vh);
-            }
+.kiss-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
 
-            .characters {
-                bottom: min(190px, 27vh); /* Ajustado para coincidir con la nueva altura del banco */
-                scale: min(1, 0.22vw + 0.55);
-                gap: min(12px, 1.8vw);
-            }
+.kiss-btn:active {
+    transform: translateY(0);
+}
 
-            .controls {
-                bottom: min(40px, 6vh);
-            }
+.kiss-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
-            .kiss-btn {
-                font-size: min(16px, 4vw);
-                padding: min(10px, 1.5vh) min(20px, 3vw);
-            }
+.counter {
+    background: rgba(255, 255, 255, 0.9);
+    padding: min(10px, 1.5vh) min(20px, 3vw);
+    border-radius: 20px;
+    font-size: min(18px, 3.5vw);
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+}
 
-            .counter {
-                font-size: min(16px, 4vw);
-                padding: min(8px, 1vh) min(16px, 2.5vw);
-            }
-        }
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: min(30px, 4vh);
+    border-radius: 20px;
+    font-size: min(20px, 3.8vw);
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 10;
+    max-width: 90%;
+}
 
-        @media (orientation: landscape) and (max-height: 500px) {
-            .scene-container {
-                height: 100vh;
-                width: 100vw;
-                border-radius: 0;
-            }
+.message.show {
+    opacity: 1;
+    visibility: visible;
+}
 
-            .bench {
-                bottom: min(80px, 18vh);
-                width: min(120px, 20vw);
-                height: min(50px, 6vh);
-            }
+.hidden {
+    display: none;
+}
 
-            .characters {
-                bottom: min(100px, 20vh); /* Ajustado para landscape */
-                scale: min(1, 0.3vw + 0.4);
-                gap: min(10px, 1.5vw);
-            }
+/* Media Queries optimizadas para mantener personajes sentados */
+@media (max-width: 768px) {
+    .scene-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
 
-            .controls {
-                bottom: min(25px, 4vh);
-                flex-direction: row;
-                justify-content: space-around;
-                width: 100%;
-            }
+    .bench {
+        bottom: min(200px, 28vh);
+        width: min(180px, 30vw);
+        height: min(70px, 9vh);
+    }
 
-            .kiss-btn,
-            .counter {
-                width: auto;
-                min-width: min(120px, 20vw);
-            }
-        }
+    .characters {
+        bottom: min(220px, 30vh);
+        /* Ajustado para que coincida con la altura del banco */
+        scale: min(1, 0.18vw + 0.65);
+        gap: min(15px, 2vw);
+    }
+
+    .controls {
+        bottom: min(60px, 8vh);
+        gap: min(10px, 1.5vh);
+    }
+}
+
+@media (max-width: 480px) {
+    .bench {
+        bottom: min(170px, 25vh);
+        width: min(150px, 35vw);
+        height: min(60px, 8vh);
+    }
+
+    .characters {
+        bottom: min(190px, 27vh);
+        /* Ajustado para coincidir con la nueva altura del banco */
+        scale: min(1, 0.22vw + 0.55);
+        gap: min(12px, 1.8vw);
+    }
+
+    .controls {
+        bottom: min(40px, 6vh);
+    }
+
+    .kiss-btn {
+        font-size: min(16px, 4vw);
+        padding: min(10px, 1.5vh) min(20px, 3vw);
+    }
+
+    .counter {
+        font-size: min(16px, 4vw);
+        padding: min(8px, 1vh) min(16px, 2.5vw);
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .scene-container {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+
+    .bench {
+        bottom: min(80px, 18vh);
+        width: min(120px, 20vw);
+        height: min(50px, 6vh);
+    }
+
+    .characters {
+        bottom: min(100px, 20vh);
+        /* Ajustado para landscape */
+        scale: min(1, 0.3vw + 0.4);
+        gap: min(10px, 1.5vw);
+    }
+
+    .controls {
+        bottom: min(25px, 4vh);
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .kiss-btn,
+    .counter {
+        width: auto;
+        min-width: min(120px, 20vw);
+    }
+}
