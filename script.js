@@ -127,7 +127,7 @@
 
         const audio = document.getElementById('musicaFondo');
         if (audio) {
-            audio.volume = 0.08; // 8% del volumen
+            audio.volume = 1.0; // 100% del volumen
 
             document.body.addEventListener('click', function () {
                 if (audio.paused) {
